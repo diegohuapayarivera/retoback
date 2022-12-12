@@ -26,6 +26,15 @@ public class Client {
     private String numeroDocumento;
 
 
+    public Client( String nombres, String apellidos, String tipoDocumento, String numeroDocumento) {
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.tipoDocumento = tipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+    }
+
+    public Client() {
+    }
 
     public Long getCodigoUnico() {
         return codigoUnico;

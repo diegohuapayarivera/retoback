@@ -26,14 +26,9 @@ public class ClientServiceImpl implements ClientServices{
         return Optional.empty();
     }
 
-    @Override
-    public Client agregar(Client newClient){
-        return clientRespository.save(newClient);
-    }
-
 
     @Override
-    public List<Client> todo() {
+    public List<Client> listaClientes() {
         return (List<Client>) clientRespository.findAll();
     }
 }

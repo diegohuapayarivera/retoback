@@ -18,21 +18,13 @@ public class ClientContoller {
     @GetMapping("/{id}")
     public ResponseEntity<Client> buscarCodigoUnico(@PathVariable Long id){
         Optional<Client> optionalClient = services.buscarCodigounico(id);
-        if (optionalClient.isPresent()){
-            Client client = optionalClient.get();
-            return ResponseEntity.ok(client);
-        }
-        return ResponseEntity.noContent().build();
+        return optionalClient.map(ResponseEntity::ok).orElseGet(() -> ResponseEntity.noContent().build());
 
     }
 
     @GetMapping
     public ResponseEntity<List<Client>> listar(){
-        return ResponseEntity.ok(services.todo());
+        return ResponseEntity.ok(services.listaClientes());
     }
 
-    @PostMapping("/add")
-    public ResponseEntity<Client> agregar(@RequestBody Client client){
-        return ResponseEntity.ok(services.agregar(client));
-    }
 }
