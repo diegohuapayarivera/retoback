@@ -1,6 +1,9 @@
 package org.diegohuapaya.retobackend.models.entity;
 
 
+import org.hibernate.annotations.NotFound;
+import org.springframework.lang.Nullable;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,11 +16,11 @@ public class Client {
     private Long codigoUnico;
 
     @Column(name = "nombres")
+    @Nullable
     private String nombres;
 
     @Column(name = "apellidos")
     private String apellidos;
-
 
     @Column(name = "tipoDocumento")
     private String tipoDocumento;
